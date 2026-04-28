@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Grill-Bar · Naia Fernández Albalá</title>
+<meta name="description" content="Diseño interior de un local de restauración en la plaza Zuloaga de San Sebastián, especializado en carnes asadas al carbón." />
+<meta name="theme-color" content="#f4f1ea" />
+<link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container site-header__row">
+    <a class="brand" href="../index.html" aria-label="Inicio">Naia<sup>*</sup></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Abrir menú">
+      <span class="nav-toggle__bars" aria-hidden="true"></span>
+    </button>
+    <nav class="nav" id="primary-nav" aria-label="Principal">
+      <a href="../index.html#proyectos">Proyectos</a>
+      <a href="../index.html#sobre-mi">Sobre mí</a>
+      <a href="../index.html#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="container project-hero reveal">
+    <a class="project-hero__back" href="../index.html#proyectos">
+      <span class="arrow" aria-hidden="true"></span>
+      Volver a proyectos
+    </a>
+    <div class="project-hero__top">
+      <h1 class="project-hero__title">Grill-Bar</h1>
+      <dl class="project-hero__meta">
+        <div><dt>Programa</dt><dd>Restauración</dd></div>
+        <div><dt>Ubicación</dt><dd>San Sebastián, plaza Zuloaga</dd></div>
+        <div><dt>Superficie</dt><dd>326,45 m² + sótano 254,90 m²</dd></div>
+        <div><dt>Curso</dt><dd>IED Kunsthal · 4º</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="container project-description reveal">
+    <div class="project-description__inner">
+      <p>Local de restauración en la plaza Zuloaga de San Sebastián especializado en carnes asadas al carbón y a las brasas. El programa se reparte entre una planta baja de 326,45 m² y un sótano de 254,90 m², articulando salón, barra y zonas de servicio.</p>
+      <p>El nombre «grill bar» surge de la combinación de la palabra inglesa <em>grill</em> —rejilla o parrilla para asar alimentos, de origen francés— con la cultura del bar contemporáneo: un punto de encuentro pensado para la sobremesa, el ritmo de mediodía y la noche.</p>
+    </div>
+  </section>
+
+  <section class="container gallery">
+    <figure class="reveal">
+      <button type="button" data-src="../assets/proyectos/grill-bar/01.webp" data-alt="Memoria descriptiva del Grill-Bar">
+        <img src="../assets/proyectos/grill-bar/01.webp" alt="Memoria descriptiva del Grill-Bar" loading="lazy" />
+      </button>
+      <figcaption>Memoria descriptiva</figcaption>
+    </figure>
+    <figure class="reveal">
+      <button type="button" data-src="../assets/proyectos/grill-bar/02.webp" data-alt="Plantas técnicas: planta baja y sótano">
+        <img src="../assets/proyectos/grill-bar/02.webp" alt="Plantas técnicas: planta baja y sótano" loading="lazy" />
+      </button>
+      <figcaption>Plantas técnicas — planta baja y sótano</figcaption>
+    </figure>
+    <figure class="reveal">
+      <button type="button" data-src="../assets/proyectos/grill-bar/03.webp" data-alt="Planta amueblada con materiales y mobiliario">
+        <img src="../assets/proyectos/grill-bar/03.webp" alt="Planta amueblada con materiales y mobiliario" loading="lazy" />
+      </button>
+      <figcaption>Planta amueblada — materiales y mobiliario</figcaption>
+    </figure>
+  </section>
+
+  <section class="container project-actions reveal">
+    <p style="margin:0; color: var(--muted); font-size: var(--step--1); letter-spacing: 0.18em; text-transform: uppercase;">Documentación completa</p>
+    <a class="button-link" href="../proyectos/Grill-Bar%20.pdf" download>Descargar PDF</a>
+  </section>
+
+  <nav class="container project-nav" aria-label="Navegación entre proyectos">
+    <a href="spa-recepcion.html">
+      <span class="project-nav__label">← Anterior</span>
+      <span class="project-nav__title serif">Spa Recepción</span>
+    </a>
+    <a href="iluminacion-mexico.html">
+      <span class="project-nav__label">Siguiente →</span>
+      <span class="project-nav__title serif">Iluminación México</span>
+    </a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__row">
+    <span>© <span id="year">2026</span> Naia Fernández Albalá</span>
+    <span>Diseño de Interiores · Bilbao</span>
+  </div>
+</footer>
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>

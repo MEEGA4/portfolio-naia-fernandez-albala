@@ -1,0 +1,22 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / tooling
+.vscode/
+.idea/
+.claude/
+*.swp
+
+# Python
+__pycache__/
+*.pyc
+
+# Local extraction artifacts
+scripts/_extracted_text/
+scripts/_summary.json
+
+# Logs / temp
+*.log
+*.tmp
