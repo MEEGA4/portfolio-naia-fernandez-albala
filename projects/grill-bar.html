@@ -10,9 +10,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/css/styles.css" />
+<link rel="stylesheet" href="../assets/css/styles.css?v=2d4ae622" />
 </head>
 <body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
 
 <header class="site-header">
   <div class="container site-header__row">
@@ -28,7 +29,7 @@
   </div>
 </header>
 
-<main>
+<main id="contenido" tabindex="-1">
   <section class="container project-hero reveal">
     <a class="project-hero__back" href="../index.html#proyectos">
       <span class="arrow" aria-hidden="true"></span>
@@ -55,13 +56,13 @@
   <section class="container gallery">
     <figure class="reveal">
       <button type="button" data-src="../assets/proyectos/grill-bar/02.webp" data-alt="Plantas técnicas: planta baja y sótano">
-        <img src="../assets/proyectos/grill-bar/02.webp" alt="Plantas técnicas: planta baja y sótano" loading="lazy" />
+        <img src="../assets/proyectos/grill-bar/02.webp" alt="Plantas técnicas: planta baja y sótano" loading="lazy" width="1249" height="2108" decoding="async" />
       </button>
       <figcaption>Plantas técnicas — planta baja y sótano</figcaption>
     </figure>
     <figure class="reveal">
       <button type="button" data-src="../assets/proyectos/grill-bar/03.webp" data-alt="Planta amueblada con materiales y mobiliario">
-        <img src="../assets/proyectos/grill-bar/03.webp" alt="Planta amueblada con materiales y mobiliario" loading="lazy" />
+        <img src="../assets/proyectos/grill-bar/03.webp" alt="Planta amueblada con materiales y mobiliario" loading="lazy" width="1252" height="1272" decoding="async" />
       </button>
       <figcaption>Planta amueblada — materiales y mobiliario</figcaption>
     </figure>
@@ -73,9 +74,9 @@
   </section>
 
   <nav class="container project-nav" aria-label="Navegación entre proyectos">
-    <a href="spa-recepcion.html">
+    <a href="reportaje-melia-bilbao.html">
       <span class="project-nav__label">← Anterior</span>
-      <span class="project-nav__title serif">Spa Recepción</span>
+      <span class="project-nav__title serif">Meliá Bilbao</span>
     </a>
     <a href="iluminacion-mexico.html">
       <span class="project-nav__label">Siguiente →</span>
@@ -92,6 +93,6 @@
 </footer>
 
 <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
-<script src="../assets/js/main.js" defer></script>
+<script src="../assets/js/main.js?v=07fa4f14" defer></script>
 </body>
 </html>

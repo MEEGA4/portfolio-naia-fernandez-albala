@@ -4,18 +4,19 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Naia Fernández Albalá · Diseño de Interiores</title>
-<meta name="description" content="Portfolio de Naia Fernández Albalá, estudiante de Diseño de Interiores en IED Kunsthal Bilbao. Proyectos de restauración, retail, iluminación y wellness." />
+<meta name="description" content="Portfolio de Naia Fernández Albalá, diseñadora de interiores. e!m · Mercado Erandio, proyectos de espacios y fotografía de interiores." />
 <meta name="theme-color" content="#f4f1ea" />
 <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/css/styles.css" />
+<link rel="stylesheet" href="assets/css/styles.css?v=2d4ae622" />
 <meta property="og:title" content="Naia Fernández Albalá · Portfolio" />
-<meta property="og:description" content="Diseño de Interiores. Proyectos de restauración, retail, iluminación y wellness." />
+<meta property="og:description" content="Diseño de Interiores. e!m · Mercado Erandio, proyectos de espacios y reportaje fotográfico del Meliá Bilbao." />
 <meta property="og:type" content="website" />
 </head>
 <body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
 
 <header class="site-header">
   <div class="container site-header__row">
@@ -31,7 +32,7 @@
   </div>
 </header>
 
-<main>
+<main id="contenido" tabindex="-1">
 
   <section class="hero container reveal" aria-labelledby="hero-title">
     <p class="hero__eyebrow eyebrow">Portfolio · 2026</p>
@@ -39,7 +40,7 @@
       Naia Fernández<br /><em>Albalá</em>
     </h1>
     <div class="hero__meta">
-      <p class="hero__role">Estudiante de Diseño de Interiores en IED Kunsthal Bilbao. Espacios pensados desde la materia, la luz y el detalle.</p>
+      <p class="hero__role">Diseñadora de interiores. Espacios pensados desde la materia, la luz y el detalle.</p>
       <a class="hero__cue" href="#proyectos">Ver proyectos</a>
     </div>
   </section>
@@ -48,13 +49,34 @@
     <div class="container">
       <header class="section__head reveal">
         <h2 id="proyectos-title" class="section__title">Proyectos seleccionados<br /><em class="serif" style="font-style:italic; color: var(--muted);">2024 — 2026</em></h2>
-        <p style="margin:0; max-width: 38ch; color: var(--muted);">Cuatro estudios de espacios, del local de restauración a la recepción de un spa, pasando por una instalación temática y una perfumería de nicho.</p>
+        <p style="margin:0; max-width: 38ch; color: var(--muted);">Una selección de proyectos de interiorismo y fotografía, del Mercado Erandio como trabajo de fin de grado a espacios de restauración, retail y bienestar.</p>
       </header>
 
+      <a class="project-card project-card--featured reveal" href="projects/mercado-erandio.html">
+        <p class="project-card__eyebrow eyebrow">Proyecto de fin de grado · Interiorismo</p>
+        <div class="project-card__media">
+          <img src="Fotos%20TFE/1.jpeg" alt="Sección ilustrada de e!m · Mercado Erandio, con módulos exteriores y dos plantas de actividad" width="1600" height="380" loading="lazy" decoding="async" />
+        </div>
+        <div class="project-card__caption">
+          <h3 class="project-card__title"><em>e!m</em> · Mercado Erandio</h3>
+          <p class="project-card__meta">Revitalización de mercado<br />Erandio</p>
+        </div>
+      </a>
+
       <div class="projects">
+        <a class="project-card reveal" href="projects/reportaje-melia-bilbao.html">
+          <div class="project-card__media">
+            <img src="fotos%20reportaje%20fotografico/2.jpeg" alt="Atrio del Meliá Bilbao con luminarias escultóricas y espacios de encuentro" width="1600" height="1064" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-card__caption">
+            <h3 class="project-card__title">Meliá Bilbao</h3>
+            <p class="project-card__meta">Reportaje fotográfico<br />Interiores</p>
+          </div>
+        </a>
+
         <a class="project-card reveal" href="projects/grill-bar.html">
           <div class="project-card__media">
-            <img src="assets/proyectos/grill-bar/02.webp" alt="Plantas técnicas del Grill-Bar en San Sebastián" loading="lazy" />
+            <img src="assets/proyectos/grill-bar/02.webp" alt="Plantas técnicas del Grill-Bar en San Sebastián" loading="lazy" width="1249" height="2108" decoding="async" />
           </div>
           <div class="project-card__caption">
             <h3 class="project-card__title">Grill-Bar</h3>
@@ -64,7 +86,7 @@
 
         <a class="project-card reveal" href="projects/iluminacion-mexico.html">
           <div class="project-card__media">
-            <img src="assets/proyectos/iluminacion-mexico/04.webp" alt="Sección y mapa lumínico del proyecto de iluminación Día de Muertos" loading="lazy" />
+            <img src="assets/proyectos/iluminacion-mexico/04.webp" alt="Sección y mapa lumínico del proyecto de iluminación Día de Muertos" loading="lazy" width="893" height="1197" decoding="async" />
           </div>
           <div class="project-card__caption">
             <h3 class="project-card__title">Iluminación México</h3>
@@ -74,7 +96,7 @@
 
         <a class="project-card reveal" href="projects/perfumeria-orto-parisi.html">
           <div class="project-card__media">
-            <img src="assets/proyectos/perfumeria-orto-parisi/03.webp" alt="Planta baja y sección de la perfumería Orto Parisi con riachuelo" loading="lazy" />
+            <img src="assets/proyectos/perfumeria-orto-parisi/03.webp" alt="Planta baja y sección de la perfumería Orto Parisi con riachuelo" loading="lazy" width="1337" height="2106" decoding="async" />
           </div>
           <div class="project-card__caption">
             <h3 class="project-card__title">Perfumería Orto Parisi</h3>
@@ -84,7 +106,7 @@
 
         <a class="project-card reveal" href="projects/spa-recepcion.html">
           <div class="project-card__media">
-            <img src="assets/proyectos/spa-recepcion/01.webp" alt="Render de la recepción del spa con paredes orgánicas" loading="lazy" />
+            <img src="assets/proyectos/spa-recepcion/01.webp" alt="Render de la recepción del spa con paredes orgánicas" loading="lazy" width="1317" height="1166" decoding="async" />
           </div>
           <div class="project-card__caption">
             <h3 class="project-card__title">Spa Recepción</h3>
@@ -99,16 +121,19 @@
     <div class="container">
       <header class="section__head reveal">
         <h2 id="sobre-mi-title" class="section__title">Sobre mí</h2>
-        <p style="margin:0; max-width: 38ch; color: var(--muted);">Bilbao, 2001. Creativa, organizada y empática. Trabajo bien hecho, atenta al detalle.</p>
+        <p style="margin:0; max-width: 38ch; color: var(--muted);">Bilbao, 2004. Creativa, organizada y empática. Atenta al detalle y comprometida con el trabajo bien hecho.</p>
       </header>
 
       <div class="about">
         <div class="about__bio reveal">
-          <p>Estudiante de cuarto curso de Diseño de Interiores en IED Kunsthal Bilbao. Me interesa cómo un espacio puede cambiar la manera de moverse, mirar y sentir; trabajo desde el concepto hasta la última muestra de material.</p>
+          <p>Graduada en Diseño de Interiores por IED Kunsthal Bilbao. Actualmente curso un Máster en Diseño de Interiores y Hospitality.</p>
+          <p>Me interesa cómo un espacio puede cambiar la manera de moverse, mirar y sentir; trabajo desde el concepto hasta la última muestra de material.</p>
           <p>Hablo español y euskera de forma nativa, inglés y francés a nivel B1. He hecho prácticas en UZ Architecture y colaboré con IED en la Bilbao Design Week 2023.</p>
           <a class="about__cv" href="proyectos/cv%20naia.pdf" download="CV-Naia-Fernandez-Albala.pdf" aria-label="Descargar CV en PDF">
             Descargar CV
-            <span class="arrow" aria-hidden="true"></span>
+            <svg class="about__cv-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M12 4v11m-4-4 4 4 4-4M5 16v4h14v-4" />
+            </svg>
           </a>
         </div>
 
@@ -124,7 +149,7 @@
           </div>
 
           <div class="detail-block reveal">
-            <dt>Software</dt>
+            <h3 class="detail-block__title">Software</h3>
             <ul class="skill-list" aria-label="Software">
               <li>AutoCAD</li>
               <li>Revit</li>
@@ -140,7 +165,7 @@
           </div>
 
           <div class="detail-block reveal">
-            <dt>Idiomas</dt>
+            <h3 class="detail-block__title">Idiomas</h3>
             <ul class="lang-list" aria-label="Idiomas">
               <li>Español <span>nativa</span></li>
               <li>Euskera <span>nativa</span></li>
@@ -163,8 +188,6 @@
       <dl class="contact-grid reveal">
         <dt>Email</dt>
         <dd><a href="mailto:nfernandezalbala@gmail.com">nfernandezalbala@gmail.com</a></dd>
-        <dt>Teléfono</dt>
-        <dd><a href="tel:+34688897332">+34 688 897 332</a></dd>
         <dt>Ubicación</dt>
         <dd>Erandio, Vizcaya</dd>
       </dl>
@@ -181,6 +204,6 @@
 </footer>
 
 <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
-<script src="assets/js/main.js" defer></script>
+<script src="assets/js/main.js?v=07fa4f14" defer></script>
 </body>
 </html>

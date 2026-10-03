@@ -4,51 +4,69 @@
   // Mobile nav
   const toggle = document.querySelector(".nav-toggle");
   if (toggle) {
-    toggle.addEventListener("click", () => {
-      const open = document.body.classList.toggle("nav-open");
+    const nav = document.getElementById(toggle.getAttribute("aria-controls"));
+    const mobile = window.matchMedia("(max-width: 719px)");
+
+    function setMenu(open) {
+      document.body.classList.toggle("nav-open", open);
       toggle.setAttribute("aria-expanded", String(open));
-    });
-    document.querySelectorAll(".nav a").forEach((a) =>
-      a.addEventListener("click", () => {
-        document.body.classList.remove("nav-open");
-        toggle.setAttribute("aria-expanded", "false");
-      })
+      toggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+      nav.inert = mobile.matches && !open;
+    }
+
+    toggle.addEventListener("click", () =>
+      setMenu(toggle.getAttribute("aria-expanded") !== "true")
     );
+    nav.querySelectorAll("a").forEach((a) =>
+      a.addEventListener("click", () => setMenu(false))
+    );
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && document.body.classList.contains("nav-open")) {
+        setMenu(false);
+        toggle.focus();
+      }
+    });
+    document.addEventListener("click", (e) => {
+      if (!nav.contains(e.target) && !toggle.contains(e.target)) setMenu(false);
+    });
+    mobile.addEventListener("change", () => setMenu(false));
+    document.documentElement.classList.add("nav-ready");
+    setMenu(false);
   }
 
   // Reveal on scroll
   const revealEls = document.querySelectorAll(".reveal");
-  if (revealEls.length && "IntersectionObserver" in window) {
+  if (revealEls.length && "IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e, i) => {
           if (e.isIntersecting) {
             e.target.style.setProperty("--reveal-delay", (i % 4) * 80 + "ms");
-            e.target.classList.add("is-visible");
+            e.target.classList.remove("is-pending");
             io.unobserve(e.target);
           }
         });
       },
       { rootMargin: "0px 0px -10% 0px", threshold: 0.06 }
     );
-    revealEls.forEach((el) => io.observe(el));
-  } else {
-    revealEls.forEach((el) => el.classList.add("is-visible"));
+    revealEls.forEach((el) => {
+      if (el.getBoundingClientRect().top > window.innerHeight) {
+        el.classList.add("is-pending");
+        io.observe(el);
+      }
+    });
   }
 
   // Lightbox
   const galleryButtons = document.querySelectorAll(".gallery button[data-src]");
   if (galleryButtons.length) {
-    const items = Array.from(galleryButtons).map((b, idx) => ({
+    const items = Array.from(galleryButtons).map((b) => ({
       src: b.dataset.src,
       alt: b.dataset.alt || "",
-      idx,
     }));
 
-    const overlay = document.createElement("div");
+    const overlay = document.createElement("dialog");
     overlay.className = "lightbox";
-    overlay.setAttribute("role", "dialog");
-    overlay.setAttribute("aria-modal", "true");
     overlay.setAttribute("aria-label", "Galería ampliada");
     overlay.innerHTML = `
       <img class="lightbox__img" alt="" />
@@ -70,6 +88,7 @@
     const btnClose = overlay.querySelector(".lightbox__btn--close");
     const btnPrev = overlay.querySelector(".lightbox__btn--prev");
     const btnNext = overlay.querySelector(".lightbox__btn--next");
+    btnPrev.hidden = btnNext.hidden = items.length === 1;
 
     let current = 0;
     let lastFocus = null;
@@ -85,16 +104,19 @@
     function open(idx) {
       lastFocus = document.activeElement;
       show(idx);
-      overlay.classList.add("is-open");
+      overlay.showModal();
       document.documentElement.style.overflow = "hidden";
       btnClose.focus();
     }
 
     function close() {
-      overlay.classList.remove("is-open");
-      document.documentElement.style.overflow = "";
-      if (lastFocus && lastFocus.focus) lastFocus.focus();
+      overlay.close();
     }
+
+    overlay.addEventListener("close", () => {
+      document.documentElement.style.overflow = "";
+      lastFocus.focus();
+    });
 
     galleryButtons.forEach((b, i) =>
       b.addEventListener("click", () => open(i))
@@ -105,17 +127,10 @@
     overlay.addEventListener("click", (e) => {
       if (e.target === overlay) close();
     });
-    document.addEventListener("keydown", (e) => {
-      if (!overlay.classList.contains("is-open")) return;
-      if (e.key === "Escape") close();
-      else if (e.key === "ArrowLeft") show(current - 1);
-      else if (e.key === "ArrowRight") show(current + 1);
-      else if (e.key === "Tab") {
-        const focusables = [btnClose, btnPrev, btnNext];
-        const i = focusables.indexOf(document.activeElement);
+    overlay.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
         e.preventDefault();
-        const next = e.shiftKey ? (i - 1 + focusables.length) % focusables.length : (i + 1) % focusables.length;
-        focusables[next].focus();
+        show(current + (e.key === "ArrowLeft" ? -1 : 1));
       }
     });
   }
