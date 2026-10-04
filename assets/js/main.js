@@ -60,16 +60,23 @@
   // Lightbox
   const galleryButtons = document.querySelectorAll(".gallery button[data-src]");
   if (galleryButtons.length) {
-    const items = Array.from(galleryButtons).map((b) => ({
-      src: b.dataset.src,
-      alt: b.dataset.alt || "",
-    }));
+    const items = Array.from(galleryButtons).map((b) => {
+      const image = b.querySelector("img");
+      const crop = b.querySelector(".visual-crop");
+      return {
+        src: b.dataset.src,
+        alt: b.dataset.alt || "",
+        width: crop ? Number(crop.style.getPropertyValue("--crop-width")) : Number(image.getAttribute("width")),
+        height: crop ? Number(crop.style.getPropertyValue("--crop-height")) : Number(image.getAttribute("height")),
+        cropStyle: crop ? crop.getAttribute("style") : "",
+      };
+    });
 
     const overlay = document.createElement("dialog");
     overlay.className = "lightbox";
     overlay.setAttribute("aria-label", "Galería ampliada");
     overlay.innerHTML = `
-      <img class="lightbox__img" alt="" />
+      <div class="lightbox__media"><img class="lightbox__img" alt="" /></div>
       <button type="button" class="lightbox__btn lightbox__btn--close" aria-label="Cerrar">
         <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>
       </button>
@@ -84,11 +91,13 @@
     document.body.appendChild(overlay);
 
     const imgEl = overlay.querySelector(".lightbox__img");
+    const media = overlay.querySelector(".lightbox__media");
     const counter = overlay.querySelector(".lightbox__counter");
     const btnClose = overlay.querySelector(".lightbox__btn--close");
     const btnPrev = overlay.querySelector(".lightbox__btn--prev");
     const btnNext = overlay.querySelector(".lightbox__btn--next");
     btnPrev.hidden = btnNext.hidden = items.length === 1;
+    imgEl.addEventListener("load", () => { imgEl.style.visibility = ""; });
 
     let current = 0;
     let lastFocus = null;
@@ -96,6 +105,10 @@
     function show(idx) {
       current = (idx + items.length) % items.length;
       const it = items[current];
+      if (imgEl.getAttribute("src") !== it.src) imgEl.style.visibility = "hidden";
+      media.classList.toggle("visual-crop", Boolean(it.cropStyle));
+      media.style.cssText = it.cropStyle;
+      media.style.setProperty("--visual-ratio", it.width / it.height);
       imgEl.src = it.src;
       imgEl.alt = it.alt;
       counter.textContent = `${current + 1} / ${items.length}`;
